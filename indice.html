@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+
+        function metodino()
+        {
+
+            let mappaOggetto = {name:"Stefano",surname:"Rubinetti",age:29};
+
+            console.log(mappaOggetto.name);
+            console.log(mappaOggetto["name"]);//mappaOggetto.get("name")
+
+            console.log(mappaOggetto);
+
+            let lista = [];
+            lista.push("stefano");//push è come add per le liste in java
+            lista.push("rubinetti");
+            lista["paperino"] = {name:"Stefano",surname:"Rubinetti",age:29};
+            lista.push("pluto");
+            console.log(lista);
+        }
+
+        metodino();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
