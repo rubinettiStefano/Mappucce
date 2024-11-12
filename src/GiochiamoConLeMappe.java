@@ -65,6 +65,44 @@ public class GiochiamoConLeMappe
 				max = cittaIesima;
 
 		System.out.println("La città più popolosa è "+max.getKey()+" e ha "+max.getValue()+" abitanti");
+
+		//darmi una mappa con chiavi le città e valori età media degli abitanti
+
+		Map<String,Integer> citta_etamedia = new HashMap<>();
+		//v1
+		for(String citta : citta_listapersone.keySet())
+		{
+			int sommaeta = 0;
+			List<Person> personeDiQuellaCitta = citta_listapersone.get(citta);
+			for (Person person : personeDiQuellaCitta)
+				sommaeta+=person.age;
+
+			int media = sommaeta/personeDiQuellaCitta.size();
+			citta_etamedia.put(citta,media);
+		}
+
+		//v2
+		for(Entry<String,List<Person>> coppia : citta_listapersone.entrySet())
+		{
+			int sommaeta = 0;
+			List<Person> personeDiQuellaCitta = coppia.getValue();
+			for (Person person : personeDiQuellaCitta)
+				sommaeta+=person.age;
+
+			int media = sommaeta/personeDiQuellaCitta.size();
+			citta_etamedia.put(coppia.getKey(),media);
+		}
+
+		//v3
+		for(Entry<String,List<Person>> coppia : citta_listapersone.entrySet())
+		{
+			int sommaeta = 0;
+			for (Person person : coppia.getValue())
+				sommaeta+=person.age;
+			citta_etamedia.put(coppia.getKey(),sommaeta/coppia.getValue().size());
+		}
+
+		System.out.println(citta_etamedia);
 	}
 
 
